@@ -1,0 +1,19 @@
+p {
+  font-family: Lato;
+}
+table {
+  width: 100%;
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  padding: 1em;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 1em;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
