@@ -7,7 +7,7 @@ https://angular-rxjs-mergemap-with-nested-http-requests.stackblitz.io
 
 ---
 ### :100: <i>Thanks!</i>
-#### Let's stay in touch!
+#### Now, don't be an stranger. Let's stay in touch!
 
 > I'm a passionately curious Front-end Engineer. I like sharing what I know, and learning what I don't. London, UK.
 
