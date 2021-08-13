@@ -1,55 +1,51 @@
-import { Component, OnInit } from "@angular/core";
-import { Observable } from "rxjs";
-import { tap, map, mergeMap, first } from "rxjs/operators";
-import { Http } from "@angular/http";
-import "rxjs/Rx";
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { tap, map, mergeMap, first } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import 'rxjs/Rx';
 
 @Component({
-  selector: "my-app",
+  selector: 'my-app',
   styleUrls: ['./app.component.css'],
   template: `
-  <table>
-  <tr>
-    <th>ID</th>
-    <th>POST</th>
-  </tr>
-  <tr>
-    <td>{{ post$.id }}</td>
-    <td>{{ post$.body }}</td>
-  </tr>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>POST</th>
+      </tr>
+      <tr>
+        <td>{{ post$.id }}</td>
+        <td>{{ post$.body }}</td>
+      </tr>
+    </table>
   `
 })
 export class AppComponent {
   post$ = {};
 
-  constructor(private http: Http) {
-    const url = "https://jsonplaceholder.typicode.com/posts";
+  constructor(private http: HttpClient) {
+    const url = 'https://jsonplaceholder.typicode.com/comments';
 
     // First XHR: get users list
-    this.http
+    // this.http
+      // option 1 using no pipes
+      // .get(url)
+      // Second XHR: get info about the first user of the list
+      // .mergeMap(posts => this.http.get(`${url}/${posts[0].id}`))
+      // .first()
+      //.tap((item) => console.log(item))
+      // .subscribe(
+      //   res => this.post$ = res
+      // );
+      // option 2 piping the requests
 
-    // option 1 using no pipes
-    // .get(url)
-    // .map(res => res.json())
-    // Second XHR: get info about the first user of the list
-    // .mergeMap(posts => this.http.get(`${url}/${posts[0].id}`))
-    // .map(res => res.json())
-    // .first()
-    //.tap((item) => console.log(item))
-    // .subscribe(
-    //   res => this.post$ = res          
-    // ); 
-
-    // option 2 piping the requests
-      .get(url).pipe(
-        map(res => res.json()),
+    this.http  
+      .get(url)
+      .pipe(
         mergeMap(posts => this.http.get(`${url}/${posts[0].id}`)),
-        map(res => res.json()),
         first(),
-        tap((item) => console.log(item))
+        tap(item => console.log(item))
       )
-      .subscribe(
-        res => (this.post$ = res)
-      );
+      .subscribe(res => (this.post$ = res));
   }
 }
