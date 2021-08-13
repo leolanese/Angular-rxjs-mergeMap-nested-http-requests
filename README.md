@@ -1,6 +1,6 @@
 # Angular-rxjs-mergeMap-nested-http-requests
 
-Angular multiple http request using rxjs, also playing with rxjs pipes (with/without version)
+A quick Angular test to show multiple http request using rxjs, also playing with rxjs pipes (with/without version)
 
 ### Direct Demo
 https://angular-rxjs-mergemap-with-nested-http-requests.stackblitz.io
