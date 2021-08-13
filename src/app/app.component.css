@@ -9,11 +9,11 @@ table {
 }
 
 td, th {
-  border: 1px solid #dddddd;
+  border: 2px solid #ddd;
   text-align: left;
-  padding: 1em;
+  padding: .5em;
 }
 
 tr:nth-child(even) {
-  background-color: #dddddd;
+  background-color: #ddd;
 }
