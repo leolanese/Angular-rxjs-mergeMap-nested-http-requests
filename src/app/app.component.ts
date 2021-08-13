@@ -27,7 +27,7 @@ export class AppComponent {
     const url = 'https://jsonplaceholder.typicode.com/comments';
 
     // First XHR: get users list
-    // this.http
+    this.http
       // option 1 using no pipes
       // .get(url)
       // Second XHR: get info about the first user of the list
@@ -37,14 +37,13 @@ export class AppComponent {
       // .subscribe(
       //   res => this.post$ = res
       // );
-      // option 2 piping the requests
 
-    this.http  
+    // option 2 piping the requests
       .get(url)
       .pipe(
         mergeMap(posts => this.http.get(`${url}/${posts[0].id}`)),
         first(),
-        tap(item => console.log(item))
+        tap(item => console.table(item))
       )
       .subscribe(res => (this.post$ = res));
   }
