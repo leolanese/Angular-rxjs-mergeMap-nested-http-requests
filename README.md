@@ -1,4 +1,4 @@
-# Angular-rxjs-mergeMap-nested-http-requests
+# Angular + rxjs + mergeMap to control nested http requests [UPDATED: Now used HttpClient]
 
 A quick Angular test to show multiple http request using rxjs, also playing with rxjs pipes (with/without version)
 
